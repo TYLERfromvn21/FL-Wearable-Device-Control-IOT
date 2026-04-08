@@ -10,12 +10,12 @@
 
 // ==========================================
 // --- CORE IOT TEST CONFIGURATION START ---
-// TODO: Comment out this entire section when moving to Final Python AI Mode
-#define WIFI_SSID "YOUR_WIFI_NAME"
-#define WIFI_PASS "YOUR_WIFI_PASSWORD"
+// --- WI-FI CONFIGURATION ---
+#define WIFI_SSID "LAPTOP-8J75CQDF 6204"
+#define WIFI_PASS "12345678"
 
-#define MQTT_SERVER "mqtt.coreiot.io"         // Or your university's Core IoT IP
+#define MQTT_SERVER "app.coreiot.io"         // Sửa thành app.coreiot.io
 #define MQTT_PORT 1883
-#define MQTT_TOKEN "YOUR_DEVICE_ACCESS_TOKEN" // Paste your Core IoT device token here
+#define MQTT_TOKEN "drLBUBBqzqugsVvfunAV" // Paste your Core IoT device token here
 // --- CORE IOT TEST CONFIGURATION END ---
 // ==========================================
