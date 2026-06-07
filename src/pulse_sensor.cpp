@@ -24,10 +24,14 @@ void TaskReadPulse(void *pvParameters) {
       // Filter out noise: Only accept BPM between 30 and 200
       if (delta > 300 && delta < 2000) {
         int instantBPM = 60000 / delta;
-        currentBPM = (currentBPM + instantBPM) / 2; // Moving average for smoothing
+        currentBPM = instantBPM; // Update currentBPM with the latest instant BPM
+
+        // Store instantBPM in the heart rate window
+        hr_window[hr_window_index] = instantBPM;
+        hr_window_index = (hr_window_index + 1) % HR_WINDOW_SIZE;
 
         // --- Test buzzer (Uncomment for testing) ---
-         if (currentBPM > 120) alertTriggered = true; else alertTriggered = false;
+         //if (currentBPM > 120) alertTriggered = true; else alertTriggered = false;
       }
     } else if (signal < threshold - 100) {
       belowThreshold = true;

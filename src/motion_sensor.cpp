@@ -27,10 +27,15 @@ void TaskReadMotion(void *pvParameters) {
     sensors_event_t a, g, temp;
     mpu.getEvent(&a, &g, &temp);
 
+    // Store raw accelerometer data
+    acc_x = a.acceleration.x;
+    acc_y = a.acceleration.y;
+    acc_z = a.acceleration.z;
+
     // Calculate total acceleration magnitude
-    float magnitude = sqrt(a.acceleration.x * a.acceleration.x + 
-                           a.acceleration.y * a.acceleration.y + 
-                           a.acceleration.z * a.acceleration.z);
+    float magnitude = sqrt(acc_x * acc_x + 
+                           acc_y * acc_y + 
+                           acc_z * acc_z);
 
     // Calculate motion level (subtract 9.8 m/s^2 of gravity)
     float motionLevel = abs(magnitude - 9.8);

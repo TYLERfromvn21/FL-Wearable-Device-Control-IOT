@@ -32,7 +32,7 @@ digitalWrite(BUZZER_PIN, HIGH);
   // Create FreeRTOS Tasks
   xTaskCreatePinnedToCore(TaskReadPulse, "PulseTask", 2048, NULL, 2, &PulseTask, 0);
   xTaskCreatePinnedToCore(TaskReadMotion, "MotionTask", 2048, NULL, 1, &MotionTask, 0);
-  xTaskCreatePinnedToCore(TaskCommunicate, "CommTask", 2048, NULL, 1, &CommTask, 1);
+  xTaskCreatePinnedToCore(TaskCommunicate, "CommTask", 8192, NULL, 1, &CommTask, 1);
   xTaskCreatePinnedToCore(TaskAlertManager, "AlertTask", 2048, NULL, 2, &AlertTask, 1);
 }
 
